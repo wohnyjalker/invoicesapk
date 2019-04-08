@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:weightSum="100"
+    android:background="@color/backgroundFragment"
+    android:gravity="center">
+
+    <View
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:background="@color/colorWhite"/>
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="15"
+        android:id="@+id/invoiceNumber"
+        android:textSize="16sp"
+        android:lines="1"
+        android:text="11"
+        android:padding="10dp"
+        android:textColor="@color/colorWhite"/>
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="40"
+        android:id="@+id/invoiceRecipient"
+        android:textSize="14sp"
+        android:lines="2"
+        android:text="Agat-Serwis Sp.z o.o."
+        android:padding="10dp"
+        android:textColor="@color/colorWhite"/>
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="20"
+        android:id="@+id/invoiceDate"
+        android:textSize="14sp"
+        android:lines="2"
+        android:text="12.01.2019"
+        android:padding="10dp"
+        android:textColor="@color/colorWhite"/>
+    <TextView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="25"
+        android:id="@+id/invoiceValue"
+        android:textSize="14sp"
+        android:lines="2"
+        android:text="10000"
+        android:padding="10dp"
+        android:textColor="@color/colorWhite"/>
+
+
+
+</LinearLayout>
