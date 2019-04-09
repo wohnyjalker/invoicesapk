@@ -1,5 +1,6 @@
 package com.example.invoices;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -19,7 +20,7 @@ import com.example.invoices.util.VerticalSpacingItemDecorator;
 
 import java.util.ArrayList;
 
-public class invocies_fragment extends Fragment implements InvoicesRecycleAdapter.OnInvoiceListener {
+public class invoices_fragment extends Fragment implements InvoicesRecycleAdapter.OnInvoiceListener {
     private static final String TAG = "Faktury";
 
     //UI
@@ -74,6 +75,9 @@ public class invocies_fragment extends Fragment implements InvoicesRecycleAdapte
 
     @Override
     public void onInvoiceClick(int i) {
-        Toast.makeText(getContext(),"faktura " + Integer.toString(i), Toast.LENGTH_SHORT).show();
+        //Toast.makeText(getContext(),"faktura " + Integer.toString(i), Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(getContext(), InvoiceActivity.class);
+        intent.putExtra("selected_invoice", mInvoices.get(i));
+        startActivity(intent);
     }
 }

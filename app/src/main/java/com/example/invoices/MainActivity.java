@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void setupViewPager(ViewPager viewPager){
         SectionsFragmentAdapter adapter = new SectionsFragmentAdapter(getSupportFragmentManager());
-        adapter.addFragment(new invocies_fragment(), "Faktury");
+        adapter.addFragment(new invoices_fragment(), "Faktury");
         adapter.addFragment(new tax_fragment(), "Podatek");
         adapter.addFragment(new zus_fragment(), "ZUS");
         viewPager.setAdapter(adapter);

@@ -1,6 +1,9 @@
 package com.example.invoices.models;
 
-public class Invoice {
+import android.os.Parcel;
+import android.os.Parcelable;
+
+public class Invoice implements Parcelable {
     private String number;
     private String recipient;
     private String date;
@@ -15,6 +18,25 @@ public class Invoice {
 
     public Invoice() {
     }
+
+    protected Invoice(Parcel in) {
+        number = in.readString();
+        recipient = in.readString();
+        date = in.readString();
+        value = in.readString();
+    }
+
+    public static final Creator<Invoice> CREATOR = new Creator<Invoice>() {
+        @Override
+        public Invoice createFromParcel(Parcel in) {
+            return new Invoice(in);
+        }
+
+        @Override
+        public Invoice[] newArray(int size) {
+            return new Invoice[size];
+        }
+    };
 
     public String getNumber() {
         return number;
@@ -56,5 +78,18 @@ public class Invoice {
                 ", date='" + date + '\'' +
                 ", value='" + value + '\'' +
                 '}';
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(number);
+        dest.writeString(recipient);
+        dest.writeString(date);
+        dest.writeString(value);
     }
 }
