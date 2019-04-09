@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.example.invoices.adapters.InvoicesRecycleAdapter;
 import com.example.invoices.models.Invoice;
@@ -18,7 +19,7 @@ import com.example.invoices.util.VerticalSpacingItemDecorator;
 
 import java.util.ArrayList;
 
-public class invocies_fragment extends Fragment {
+public class invocies_fragment extends Fragment implements InvoicesRecycleAdapter.OnInvoiceListener {
     private static final String TAG = "Faktury";
 
     //UI
@@ -51,7 +52,7 @@ public class invocies_fragment extends Fragment {
         //decorator z /util/VerticalSpacingItemDecorator
         VerticalSpacingItemDecorator itemDecorator = new VerticalSpacingItemDecorator(10);
         mRecyclerView.addItemDecoration(itemDecorator);
-        mInvoicesRecyclerAdapter = new InvoicesRecycleAdapter(mInvoices);
+        mInvoicesRecyclerAdapter = new InvoicesRecycleAdapter(mInvoices, this);
         mRecyclerView.setAdapter(mInvoicesRecyclerAdapter);
         // vertical default decorator decorator
         //mRecyclerView.addItemDecoration(new DividerItemDecoration(mRecyclerView.getContext(), DividerItemDecoration.VERTICAL));
@@ -69,5 +70,10 @@ public class invocies_fragment extends Fragment {
             mInvoices.add(invoice);
         }
         mInvoicesRecyclerAdapter.notifyDataSetChanged();
+    }
+
+    @Override
+    public void onInvoiceClick(int i) {
+        Toast.makeText(getContext(),"faktura " + Integer.toString(i), Toast.LENGTH_SHORT).show();
     }
 }
