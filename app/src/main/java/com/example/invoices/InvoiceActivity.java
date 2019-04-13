@@ -20,6 +20,7 @@ public class InvoiceActivity extends AppCompatActivity {
         setContentView(R.layout.activity_invoice);
 
         TextView mValueTextView;
+        TextView mInvoiceTitle;
 
 
         if (getIntent().hasExtra("selected_invoice")) {
@@ -27,6 +28,11 @@ public class InvoiceActivity extends AppCompatActivity {
             Toast.makeText(this, "Faktura " + mInvoice.toString(), Toast.LENGTH_LONG).show();
             //Log.d(TAG, "onCreate: " + invoice.toString());
         }
+
+
+
+        mInvoiceTitle = findViewById(R.id.invoiceTextTitle);
+        mInvoiceTitle.setText(String.format("Faktura nr %s", mInvoice.getNumber()));
 
         mValueTextView = findViewById(R.id.valueTextView);
         mValueTextView.setText(mInvoice.getValue());
